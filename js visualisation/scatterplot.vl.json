@@ -1,0 +1,155 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": "Population Density",
+  "data": {
+    "url": "https://jaspers07.github.io/FIT3179/data/population_by_country_2020_Final.csv"
+  },
+  "params": [
+    {
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 100000000,
+        "step": 1000000,
+        "name": "Min Population: "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "labels": [
+          "Show All",
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Population > 0"},
+    {"filter": "datum.Density > 0"},
+    {"filter": "datum.Population > Population_Above"},
+    {
+      "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Population",
+      "type": "quantitative",
+      "axis": {"tickCount": 4},
+      "scale": {"type": "log", "domain": [100, 1700000000]}
+    },
+    "y": {
+      "field": "Density",
+      "type": "quantitative",
+      "axis": {"tickCount": 3},
+      "scale": {"type": "log", "domain": [1, 30000]}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["Continent"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "color": {
+          "field": "Continent",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "North America",
+              "South America",
+              "Europe",
+              "Africa",
+              "Asia",
+              "Oceania"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8",
+              "#a65628"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 0.6},
+          "value": 0.2
+        },
+        "size": {
+          "field": "LandArea",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [10000, 1000000, 5000000, 10000000, 11000000],
+            "range": [10, 50, 150, 200, 300, 400]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Population", "type": "quantitative", "format": ","},
+          {"field": "LandArea", "type": "quantitative", "format": ","},
+          {"field": "Density", "type": "quantitative", "format": ".2f"},
+          {"field": "Continent", "type": "nominal"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'United States'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Population", "type": "quantitative", "format": ","},
+          {"field": "LandArea", "type": "quantitative", "format": ","},
+          {"field": "Density", "type": "quantitative", "format": ".2f"},
+          {"field": "Continent", "type": "nominal"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
