@@ -13,7 +13,7 @@
       "lookup": "properties.SUBUNIT",
       "from": {
         "data": {
-          "url": "https://jaspers07.github.io/FIT3179/population_by_country_2020.csv"
+          "url": "https://jaspers07.github.io/FIT3179/data/population_by_country_2020.csv"
         },
         "key": "Country",
         "fields": ["Population"]
