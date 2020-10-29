@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 400,
+  "width": 450,
   "height": 300,
   "title": "Population Density (People Per Km) 2020",
   "projection": {"type": "equirectangular"},
