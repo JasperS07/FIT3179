@@ -1,4 +1,4 @@
-Country,Population,YearlyChange,NetChange,Density,LandArea,Migrants,Fert.Rate,Med.Age,UrbanPop,WorldShare,Continent,latitude,longitude
+Country,Population,YearlyChange,NetChange,Density,LandArea,Migrants,Fert.Rate,Med.Age,UrbanPop%,WorldShare,Continent,latitude,longitude
 China,1440297825,0.39%,5540090,153,9388211,-348399,1.7,38,61%,18.47%,Asia,35.86166,104.195397
 India,1382345085,0.99%,13586631,464,2973190,-532687,2.2,28,35%,17.70%,Asia,20.593684,78.96288
 United States,331341050,0.59%,1937734,36,9147420,954806,1.8,38,83%,4.25%,North America,37.09024,-95.712891
