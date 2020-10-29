@@ -8,14 +8,14 @@
   },
   "params": [
     {
-      "name": "Population_Above",
+      "name": "LandArea_Above",
       "value": 0,
       "bind": {
         "input": "range",
         "min": 0,
-        "max": 100000000,
-        "step": 1000000,
-        "name": "Min Population: "
+        "max": 9000000,
+        "step": 10000,
+        "name": "Min LandArea: "
       }
     },
     {
@@ -32,7 +32,7 @@
           "Oceania"
         ],
         "labels": [
-          "Show All",
+          "All Continents",
           "North America",
           "South America",
           "Europe",
@@ -47,7 +47,7 @@
   "transform": [
     {"filter": "datum.Population > 0"},
     {"filter": "datum.Density > 0"},
-    {"filter": "datum.Population > Population_Above"},
+    {"filter": "datum.LandArea > LandArea_Above"},
     {
       "filter": "Continent_selection == null || datum.Continent == Continent_selection"
     }
