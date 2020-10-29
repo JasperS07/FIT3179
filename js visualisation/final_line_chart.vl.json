@@ -1,0 +1,17 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "World population over Time.",
+  "width": 400,
+  "height": 300,
+  "title": "World Population Over Time",
+  "data": {
+    "url": "https://jaspers07.github.io/FIT3179/data/population_overyear.csv"
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal"},
+    "y": {"aggregate": "sum", "field": "Population", "type": "quantitative"},
+    "color": {"field": "Continent", "type": "nominal"}
+  },
+  "config": {}
+}
