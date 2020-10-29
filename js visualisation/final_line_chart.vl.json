@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "World population over Time.",
-  "width": 400,
-  "height": 300,
+  "width": 150,
+  "height": 150,
   "title": "World Population Over Time",
   "data": {
     "url": "https://jaspers07.github.io/FIT3179/data/population_overyear.csv"
