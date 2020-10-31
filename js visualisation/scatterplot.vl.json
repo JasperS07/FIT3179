@@ -54,17 +54,19 @@
   ],
   "encoding": {
     "x": {
-      "field": "Population",
-      "type": "quantitative",
-      "axis": {"tickCount": 4},
-      "scale": {"type": "log", "domain": [100, 1700000000]}
-    },
-    "y": {
       "field": "Density",
       "type": "quantitative",
-      "axis": {"tickCount": 3},
-      "scale": {"type": "log", "domain": [1, 30000]}
+      "axis": {"tickCount": 4},
+      "scale": {"type": "log", "domain": [1, 28000]}
+    },
+
+    "y": {
+      "field": "Population",
+      "type": "quantitative",
+      "axis": {"tickCount": 5},
+      "scale": {"type": "log", "domain": [1000, 1500000000]}
     }
+    
   },
   "layer": [
     {
@@ -82,20 +84,21 @@
           "type": "nominal",
           "scale": {
             "domain": [
+              "Asia",
+              "Africa",
+              "Europe",
               "North America",
               "South America",
               "Europe",
-              "Africa",
-              "Asia",
               "Oceania"
             ],
             "range": [
-              "#e41a1c",
-              "#984ea3",
-              "#ff7f00",
-              "#a6cee3",
               "#377eb8",
-              "#a65628"
+              "#bcbd22",
+              "#ff7f00",
+              "#d62728",
+              "#8c564b",
+              "#9467bd"
             ]
           }
         },
@@ -136,7 +139,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country'] == 'China' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'United States'",
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'United States'",
             "value": 1
           },
           "value": 0
