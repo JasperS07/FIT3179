@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "A bar chart showing the World Area of the different continent in 2020",
-  "width": 450,
+  "width": 480,
   "height": 200,
   "title": "World Land Area Across Continents",
 
