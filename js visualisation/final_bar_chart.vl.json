@@ -1,16 +1,23 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "A bar chart showing the World Area of the different continent in 2020",
-  "width": 150,
+  "width": 450,
   "height": 200,
   "title": "World Land Area Across Continents",
+
   "data": {
     "url": "https://jaspers07.github.io/FIT3179/data/population_by_country_2020_Final.csv"
   },
+  
   "mark": "bar",
   "encoding": {
     "x": {"aggregate": "sum", "field": "LandArea"},
-    "y": {"field": "Continent", "sort": "-x"}
+    "y": {"field": "Continent", "sort": "-x"},
+    "tooltip": [
+          {"field": "Continent", "type": "nominal"},
+          {"aggregate": "sum", "field": "LandArea", "title": "Total Land Area"}
+    ]
   },
+
   "config": {}
 }
